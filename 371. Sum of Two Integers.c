@@ -1,12 +1,14 @@
 int getSum(int a, int b) {
-    int sum=0,c;
-    sum=a|b;
-    c=a&b;
-    while(c!=0){
-      a=sum^c;
-      b=c<<1;
-      sum=a|b;
-      c=a&b;
+    int sum;
+    int over;
+    sum = a | b;
+    over = a & b;
+    while(over!=0){
+        int temp,temp2;;
+        temp = sum ^ over;
+        temp2 = over << 1;
+        sum = temp | temp2;
+        over = temp & temp2;
     }
     return sum;
 }
